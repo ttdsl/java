@@ -1,0 +1,34 @@
+1、先简单的介绍一下SpringMVC
+
+　　废话不多说，其实SpringMVC就是一个MVC的框架，SpringMVC它的annotation式的开发比struts
+
+　　开发的方便很多，可以直接代替struts。SpringMVC的执行效率要比Struts高，因为Struts的值栈影响效率。
+
+2、MVC框架通过实现MVC可以将系统的架构很好的分离：视图、控制、模型
+
+　　SpringMVC的设计主要围绕着DispatcheServlet，DispatcheServlet负责请求派发到特定的handler(管理者搬运工)
+
+　　　　　　　　　　　　　　
+
+ 
+
+pringMVC与struts的区别
+
+一、机制：struts是filter，SpringMVC是servlet。
+
+　　　　   servlet，一个可以运行在服务器上额java程序；filter，拦截器、对客户端的请求进行拦截
+
+二、性能：SpringMVC比struts快，SpringMVC基于方法的设计，struts是基于类，对每一次请求都会请求一个
+
+　　　　　实例Action，每个action都会被注入。类级别中的拦截，每次的请求被创建一个action，然后set、get
+
+　　　　　方法将数据注入。而SpringMVC是方法级别的拦截，拦截到方法后，根据参数上的注解，注入数据。
+
+三、参数传递：struts接受参数传递的时候可以让多个方法共享数据！
+四、struts存在漏洞
+    可远程执行服务器脚本代码[2] 
+    用户可以构造http://host/struts2-blank/example/X.action?action:%25{(new+java.lang.ProcessBuilder(new+java.lang.String[]{'command','goes','here'})).start()}链接，command goes here可以换成是破坏脚本的路径和参数，比如fdisk -f等，造成破环系统无法运行的目的。
+    重定向漏洞[3] 
+    用户可以构造如知名网站淘宝的重定向连接，形如<a href="http://www.淘宝.com/item00001.html?redirect:http://黑客/getyourPassword">打折新款</a>,引导用户点击后进入钓鱼网站，在界面上让其进行登陆用以获取用户的密码。
+
+五、struts2是多例的，每次访问创建一个action对象，而springMVC是单例的，速度快
