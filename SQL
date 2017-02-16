@@ -1,0 +1,12 @@
+1. 可以使用SQL语句来控制我们查询出来的值
+
+     convert关键字，select FBPACUSP.*,CONVERT(varchar(12) , fbpacusp.ZZDATE, 23)ZZDATE1
+     Case关键字，根据查询出来的结果来判断输出的值
+          case when dtc.BUSSTYPE='SF01' then convert(varchar(10),dtc.PAYDATE,23) else null end) as PAYDATE
+
+
+2. SQL语句更改表结构、字段名和字段类型
+
+    修改字段名： alter table tab_info rename column oldname to newname; 
+    修改字段属性： alter table tab_info alter column thisname varchar(200) not null; 
+    修改默认值 alter table tabinfo add constraint df default('嘿嘿') for thisname;
