@@ -1,0 +1,15 @@
+1. readonly和disable的区别
+      Readonly和Disabled它们都能够做到使用户不能够更改表单域中的内容。但是它们之间有着微小的差别，总结如下： 
+         Readonly只针对input(text / password)和textarea有效，而disabled对于所有的表单元素都有效，但是表单元素在使用了disabled后，
+         当我们将表单以POST或GET的方式提交的话，这个元素的值不会被传递出去，而readonly会将该值传递出去（readonly接受值更改可以回传，
+         disable接受改但不回传数据）。
+
+
+2. 使用post-redirect-get参数自动编码问题解决
+      在页面使用post提交后，后台获取到的是正确的值，使用重定向后值在url中自动编码，获取出错，解决方法
+        类中
+          String ccyname=request.getParameter("CCYNAME");
+          ccyname = URLEncoder.encode(ccyname, "utf-8");
+        页面中
+          String ccyname=request.getParameter("CCYNAME");
+          ccyname = URLDecoder.decode(ccyname, "iso-8859-1");
