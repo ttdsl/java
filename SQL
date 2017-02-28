@@ -10,3 +10,5 @@
     修改字段名： alter table tab_info rename column oldname to newname; 
     修改字段属性： alter table tab_info alter column thisname varchar(200) not null; 
     修改默认值 alter table tabinfo add constraint df default('嘿嘿') for thisname;
+    
+3. 当我们需要将表中的数据根据某个字段排序并根据另外一个字段分组，可以使用子查询，现将表排序作为一张表，从这张表再分组就ok
